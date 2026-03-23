@@ -72,9 +72,12 @@ export default function Home() {
       <div className="w-full max-w-[720px] flex flex-col gap-8">
         {/* Header */}
         <div className="flex flex-col gap-1">
-          <h1 className="text-white font-mono text-2xl tracking-tight">
-            MJ Prompt Generator
-          </h1>
+          <div className="flex items-baseline gap-3">
+            <h1 className="text-white font-mono text-2xl tracking-tight">
+              MJ Prompt Generator
+            </h1>
+            <span className="text-white/20 font-mono text-xs">v1.0</span>
+          </div>
           <p className="text-white/30 font-mono text-sm">
             Sobe uma imagem. Recebe um prompt.
           </p>
