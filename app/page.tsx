@@ -6,13 +6,12 @@ import { toast } from "sonner";
 import { UploadZone } from "@/components/UploadZone";
 import { ControlsBar } from "@/components/ControlsBar";
 import { PromptResult } from "@/components/PromptResult";
-import type { AspectRatio, MJVersion, ImageStyle } from "@/lib/types";
+import type { AspectRatio, MJVersion } from "@/lib/types";
 
 export default function Home() {
   const [file, setFile] = useState<File | null>(null);
   const [aspectRatio, setAspectRatio] = useState<AspectRatio>("4:5");
   const [mjVersion, setMjVersion] = useState<MJVersion>("6.1");
-  const [imageStyle, setImageStyle] = useState<ImageStyle>("photo");
   const [prompt, setPrompt] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [resultError, setResultError] = useState<string | null>(null);
@@ -30,7 +29,6 @@ export default function Home() {
       formData.append("image", file);
       formData.append("aspectRatio", aspectRatio);
       formData.append("mjVersion", mjVersion);
-      formData.append("imageStyle", imageStyle);
 
       const res = await fetch("/api/generate", {
         method: "POST",
@@ -60,7 +58,7 @@ export default function Home() {
     } finally {
       setIsLoading(false);
     }
-  }, [file, aspectRatio, mjVersion, imageStyle]);
+  }, [file, aspectRatio, mjVersion]);
 
   const handleFileSelect = useCallback((f: File) => {
     setFile(f);
@@ -98,10 +96,8 @@ export default function Home() {
         <ControlsBar
           aspectRatio={aspectRatio}
           mjVersion={mjVersion}
-          imageStyle={imageStyle}
           onAspectRatioChange={setAspectRatio}
           onVersionChange={setMjVersion}
-          onImageStyleChange={setImageStyle}
           onGenerate={handleGenerate}
           canGenerate={!!file && !isLoading}
           isLoading={isLoading}

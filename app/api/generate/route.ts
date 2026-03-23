@@ -1,7 +1,7 @@
 // app/api/generate/route.ts
 import { NextRequest, NextResponse } from "next/server";
 import { generatePrompt } from "@/lib/claude";
-import { ACCEPTED_TYPES, MAX_FILE_SIZE_MB, type ImageStyle } from "@/lib/types";
+import { ACCEPTED_TYPES, MAX_FILE_SIZE_MB } from "@/lib/types";
 
 export async function POST(req: NextRequest) {
   try {
@@ -9,9 +9,7 @@ export async function POST(req: NextRequest) {
     const imageFile = formData.get("image") as File | null;
     const aspectRatio = formData.get("aspectRatio") as string | null;
     const mjVersion = formData.get("mjVersion") as string | null;
-    const imageStyle = (formData.get("imageStyle") as ImageStyle | null) ?? "photo";
 
-    // Validate inputs
     if (!imageFile || !aspectRatio || !mjVersion) {
       return NextResponse.json(
         { error: "Missing required fields: image, aspectRatio, mjVersion" },
@@ -34,18 +32,11 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // Convert file to base64
     const arrayBuffer = await imageFile.arrayBuffer();
     const buffer = Buffer.from(arrayBuffer);
     const base64 = buffer.toString("base64");
 
-    const prompt = await generatePrompt(
-      base64,
-      imageFile.type,
-      aspectRatio,
-      mjVersion,
-      imageStyle
-    );
+    const prompt = await generatePrompt(base64, imageFile.type, aspectRatio, mjVersion);
 
     return NextResponse.json({ prompt });
   } catch (error) {
