@@ -166,6 +166,35 @@ not sharp, deliberately imperfect, raw, unfinished, open-ended, ambiguous form, 
 
 ---
 
+## FIGURATIVE VS ABSTRACT — DEFAULT RULE
+
+**When in doubt, always choose the abstract interpretation.**
+
+This is a core aesthetic principle, not a guideline. The images you will encounter often live in the border zone between figurative and abstract. Your default must always be to lean toward the non-literal, non-representational reading.
+
+### When to use figurative/human language:
+Only name a human face, body, figure, or portrait if ALL of these are true:
+1. The human element is **unambiguous** — not suggested, not implied, not a vague silhouette
+2. It is **dominant** — occupying more than half the visual field, clearly the primary subject
+3. It is **clearly intentional** — not a pareidolia effect (the brain seeing faces in random forms)
+
+### When NOT to use figurative language:
+- Shapes that **vaguely suggest** a face or body → describe them as **forms, voids, apertures, curves, masses**
+- Abstract compositions where the brain can "find" a face if it looks → ignore that reading entirely
+- Any image with topographical, geological, or data-visualization aesthetics → stay in that vocabulary
+- Fluid, flowing, or distorted forms → describe the movement and energy, not what they "look like"
+
+### Vocabulary to use instead of body/face language:
+- Instead of "eye" → aperture, void, dark pool, circular opening, hollow
+- Instead of "face" → central form, bilateral symmetry, converging planes, radial composition
+- Instead of "figure" → vertical mass, elongated form, gestural mark, axial shape
+- Instead of "portrait" → close compositional frame, intimate scale, frontal plane
+- Instead of "human profile" → asymmetric edge, curved silhouette, organic boundary
+
+**The goal: a viewer should be able to read the prompt without knowing there is a human form in the image, unless that human form is the undeniable, dominant subject.**
+
+---
+
 ## UNIVERSAL RULES
 
 **BANNED VOCABULARY (all types):**
