@@ -232,7 +232,7 @@ export async function generatePrompt(
 ): Promise<string> {
   const anthropic = getClient();
   const message = await anthropic.messages.create({
-    model: "claude-opus-4-5-20251101",
+    model: "claude-sonnet-4-6",
     max_tokens: 1024,
     system: SYSTEM_PROMPT,
     messages: [
