@@ -17,7 +17,8 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    if (!ACCEPTED_TYPES.includes(imageFile.type)) {
+    const fileType = imageFile.type || "image/jpeg";
+    if (!ACCEPTED_TYPES.includes(fileType)) {
       return NextResponse.json(
         { error: "Unsupported file type. Use JPEG, PNG, or WebP." },
         { status: 400 }
@@ -36,7 +37,7 @@ export async function POST(req: NextRequest) {
     const buffer = Buffer.from(arrayBuffer);
     const base64 = buffer.toString("base64");
 
-    const prompt = await generatePrompt(base64, imageFile.type, aspectRatio, mjVersion);
+    const prompt = await generatePrompt(base64, fileType, aspectRatio, mjVersion);
 
     return NextResponse.json({ prompt });
   } catch (error) {
